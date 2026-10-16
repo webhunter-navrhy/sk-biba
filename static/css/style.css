@@ -130,3 +130,6 @@ h1 { font-size: clamp(2.3rem, 1.6rem + 3.6vw, 4.4rem); }
 .formular input, .formular textarea { background: #fff; border-radius: 2px; }
 .paticka { background: #111; color: #cfcfd2; padding-block: var(--space-4); font-size: var(--step--1); }
 .paticka .wrap { display: grid; gap: .25rem; }
+.kontakt-info dd a { display: inline-flex; align-items: center; min-height: 44px; }
+.montaz { grid-template-columns: 1fr !important; }
+.montaz > div { max-width: 52rem; }
