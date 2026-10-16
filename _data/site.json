@@ -1,0 +1,51 @@
+{
+  "slug": "sk-biba",
+  "nazev": "BiBa.sk s.r.o.",
+  "url": "https://webhunter-navrhy.github.io/sk-biba/",
+  "base": "/sk-biba/",
+  "lang": "sk",
+  "popis": "BiBa.sk z Banskej Bystrice: autorádiá, multimédiá, navigácie, reproduktory a Home HiFi. Predaj, montáž a nastavenie, e-shop a stovky montáží.",
+  "navrh": true,
+  "domena": "",
+  "og_image": "halo9.jpg",
+  "logo": "logo.jpg",
+  "theme_color": "#111111",
+  "typ": "LocalBusiness",
+  "ico": "47606690",
+  "kontakt": {
+    "email": "biba@biba.sk",
+    "telefon": "",
+    "adresa": {
+      "ulice": "Zvolenská cesta 14",
+      "psc": "974 05",
+      "mesto": "Banská Bystrica",
+      "zeme": "SK"
+    }
+  },
+  "oteviraci_doba": [],
+  "sameas": [],
+  "cenove_rozpeti": "",
+  "formular": {
+    "endpoint": "",
+    "demo": true,
+    "predmet": "Dopyt z webu biba.sk"
+  },
+  "nav": [
+    {
+      "text": "Služby",
+      "href": "#sluzby"
+    },
+    {
+      "text": "Cenník montáží",
+      "href": "#cennik"
+    },
+    {
+      "text": "Značky",
+      "href": "#znacky"
+    },
+    {
+      "text": "Kontakt",
+      "href": "#kontakt"
+    }
+  ]
+}

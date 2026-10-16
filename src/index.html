@@ -1,0 +1,82 @@
+{% extends "_base.html" %}
+{% set titulek = 'BiBa.sk – autorádiá, multimédiá, navigácie a HiFi, Banská Bystrica' %}
+{% set cesta = '' %}
+{% block obsah %}
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-text">
+      <p class="stitok">Banská Bystrica · Car HiFi a Home HiFi</p>
+      <h1>Zvuk a obraz, ktorý precítite</h1>
+      <p class="uvod">Pomôžeme Vám vybrať, kúpiť, ale aj zapojiť, namontovať a nastaviť. Firma BiBa.sk je na trhu viac ako 10 rokov a má za sebou stovky montáží.</p>
+      <p class="hero-cta"><a class="tlacitko" href="#kontakt">Dopyt na montáž</a> <a class="tlacitko tl-svetle" href="https://www.biba.sk" rel="noopener">Do e-shopu</a></p>
+    </div>
+    <figure class="hero-foto">{{ img('halo9.jpg', 'Multimediálna jednotka Alpine Halo 9 v palubnej doske', sizes='(min-width: 60rem) 36rem, 100vw') }}</figure>
+  </div>
+</section>
+
+<div class="wrap lista"><p><strong>10+ rokov</strong> na trhu</p><p><strong>Stovky montáží</strong> áut aj domácností</p><p><strong>E-shop</strong> overený časom a zákazníkmi</p></div>
+
+<section class="sekce" id="sluzby">
+  <div class="wrap">
+    <div class="hlavicka-sekcie"><h2>Čo u nás nájdete</h2><p>Komplexné služby v oblasti ozvučenia áut aj rôznych priestorov.</p></div>
+    <ul role="list" class="karty">
+      {% for s in data.sluzby %}<li class="karta"><span class="cislo">0{{ loop.index }}</span><h3>{{ s.nazev }}</h3><p>{{ s.popis }}</p></li>{% endfor %}
+    </ul>
+  </div>
+</section>
+
+<section class="sekce sekcia-tmava" id="montaz">
+  <div class="wrap montaz">
+    <div>
+      <h2>Autá: predaj a montáž</h2>
+      <p>Multimediálne stanice a autorádiá, pripojenie DVD, TV, DVB-T a USB k pôvodným rádiám. Navigácie vo vozidlách BMW, Mercedes-Benz, Audi, Porsche, Jeep či Toyota a odblokovanie obrazu na pôvodné OEM rádio.</p>
+      <p>Autoalarmy, imobilizéry, GPS monitoring vozidiel, kniha jázd, kontrola PHM, DRL svetlá, parkovacie systémy a handsfree sady.</p>
+    </div>
+    <figure>{{ img('audi.jpg', 'Navigácia navrhnutá pre Audi A4, A5 a Q5', sizes='(min-width: 60rem) 28rem, 100vw') }}</figure>
+  </div>
+</section>
+
+<section class="sekce" id="cennik">
+  <div class="wrap">
+    <div class="hlavicka-sekcie"><h2>Cenník montážnych prác</h2><p>Ceny sú len za prácu, sú orientačné a zahŕňajú 20 % DPH. Môžu sa meniť podľa typu vozidla a zložitosti zostavy. Cenník je z Vášho súčasného webu (platný od 1. 1. 2020).</p></div>
+    <table class="cennik">
+      <thead><tr><th scope="col">Práca</th><th scope="col">Cena</th><th scope="col">Trvanie</th></tr></thead>
+      <tbody>{% for r in data.cennik %}<tr><th scope="row">{{ r[0] }}</th><td>{{ r[1] }}</td><td>{{ r[2] }}</td></tr>{% endfor %}</tbody>
+    </table>
+  </div>
+</section>
+
+<section class="sekce sekcia-svetla" id="znacky">
+  <div class="wrap">
+    <div class="hlavicka-sekcie"><h2>Značky, s ktorými pracujeme</h2><p>Zastúpenie značiek Alpine, Cobra, DLS, Dension, Jablotron, Parrot. Pri Home HiFi spolupracujeme s Bis Audio a Ketos.</p></div>
+    <ul role="list" class="znacky">
+      {% for z in ['Alpine','AudioQuest','Bowers &amp; Wilkins','Canton','Denon','Dension','Klipsch','Koss','Magnat','Marantz','Parrot','Rotel','Jablotron'] %}<li>{{ z|safe }}</li>{% endfor %}
+    </ul>
+  </div>
+</section>
+
+<section class="sekce" id="kontakt">
+  <div class="wrap kontakt">
+    <div class="kontakt-info">
+      <h2>Sme tu pre Vás</h2>
+      <p>Napíšte, čo potrebujete: značku a model auta, čo by ste chceli namontovať, prípadne čo Vás zaujalo v e-shope. Ozveme sa Vám e-mailom.</p>
+      <dl>
+        <dt>Sídlo firmy</dt><dd>BiBa.sk s.r.o., Zvolenská cesta 14, 974 05 Banská Bystrica</dd>
+        <dt>E-mail</dt><dd><a href="mailto:{{ site.kontakt.email }}">{{ site.kontakt.email }}</a></dd>
+        <dt>IČO</dt><dd>47 606 690</dd>
+        <dt>E-shop</dt><dd><a href="https://www.biba.sk" rel="noopener">www.biba.sk</a></dd>
+      </dl>
+    </div>
+    <form class="formular" method="post" data-endpoint="{{ site.formular.endpoint }}" data-demo="1">
+      <label>Meno <input name="jmeno" autocomplete="name" required></label>
+      <label>E-mail <input name="email" type="email" autocomplete="email" required></label>
+      <label>Telefón (nepovinné) <input name="telefon" type="tel" autocomplete="tel"></label>
+      <label>Čo potrebujete <textarea name="zprava" rows="5" placeholder="Napr. autorádio s CarPlay do Audi A4, rok výroby 2016" required></textarea></label>
+      <div class="past" aria-hidden="true"><label>Nevyplňovať <input name="_gotcha" tabindex="-1" autocomplete="off"></label></div>
+      <input type="hidden" name="_subject" value="{{ site.formular.predmet }}">
+      <button type="submit">Odoslať dopyt</button>
+      <p class="formular-stav" role="status" aria-live="polite"></p>
+    </form>
+  </div>
+</section>
+{% endblock %}
